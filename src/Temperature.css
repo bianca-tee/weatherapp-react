@@ -1,0 +1,13 @@
+h4.current-temp {
+  display: inline;
+  font-size: 130px;
+  font-weight: 400;
+  padding-right: 0px;
+}
+
+span.current-temp-units {
+  font-size: 43px;
+  font-weight: 600;
+  position: relative;
+  top: -62px;
+}

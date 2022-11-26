@@ -1,0 +1,9 @@
+.WeatherDetails ul {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8rem;
+  list-style-type: none;
+  padding-left: 22px;
+  padding-top: 22px;
+  text-align: right;
+}
