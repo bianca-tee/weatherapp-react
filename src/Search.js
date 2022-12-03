@@ -10,6 +10,7 @@ export default function Search() {
           placeholder="Enter your city"
           className="city-box"
           id="city-input"
+          autoFocus="on"
         />
         <button type="submit" className="search-button">
           Search
