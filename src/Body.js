@@ -8,7 +8,7 @@ export default function Body() {
     <div className="row Body">
       <div className="col-12 Search">
         <Search />
-        <Weather />
+        <Weather defaultCity="Sydney" />
       </div>
     </div>
   );

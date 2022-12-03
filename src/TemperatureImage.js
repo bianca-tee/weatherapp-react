@@ -1,11 +1,11 @@
 import React from "react";
 import "./TemperatureImage.css";
-import Sun from "./img/Sun.png";
 
-export default function TemperatureImage() {
+export default function TemperatureImage(props) {
+  console.log(props);
   return (
     <div className="TemperatureImage">
-      <img src={Sun} alt="" className="main-icon" />
+      <img src={props.iconUrl} alt={props.description} className="main-icon" />
     </div>
   );
 }
