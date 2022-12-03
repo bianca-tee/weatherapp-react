@@ -1,62 +1,53 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Temperature from "./Temperature";
-import TemperatureImage from "./TemperatureImage";
-import WeatherDetails from "./WeatherDetails";
+import "./Temperature.css";
+import "./WeatherDetails.css";
 import FormattedDate from "./FormattedDate";
+import "./TemperatureImage.css";
 import "./City.css";
 
 export default function Weather(props) {
-  let [weatherData, setWeatherData] = useState({ ready: false });
-
-  function handleResponse(response) {
-    console.log(response);
-    setWeatherData({
-      ready: true,
-      city: response.data.city,
-      temperature: Math.round(response.data.temperature.current),
-      date: new Date(response.data.time * 1000),
-      description: response.data.condition.description,
-      humidity: response.data.temperature.humidity,
-      wind: Math.round(response.data.wind.speed),
-      iconUrl: response.data.condition.icon_url,
-    });
-  }
-
-  if (weatherData.ready) {
-    return (
-      <div>
-        <div className="col-12 city-col">
-          <h2 className="city">{weatherData.city}</h2>
-          <h5 className="date-time">
-            <FormattedDate date={weatherData.date} />
-          </h5>
+  return (
+    <div className="Weather">
+      <div className="col-12 city-col">
+        <h2 className="city">{props.data.city}</h2>
+        <h5 className="date-time">
+          <FormattedDate date={props.data.date} />
+        </h5>
+      </div>
+      <div className="row mx-0">
+        <div className="col-6">
+          <div className="Temperature">
+            <h4 className="current-temp">{props.data.temperature}</h4>
+            <span className="current-temp-units">°C</span>
+          </div>
         </div>
-        <div className="row mx-0">
-          <div className="col-6">
-            <Temperature temp={weatherData.temperature} />
-          </div>
-          <div className="col-2">
-            <TemperatureImage
-              iconUrl={weatherData.iconUrl}
-              description={weatherData.description}
+        <div className="col-2">
+          <div className="TemperatureImage">
+            <img
+              src={props.data.iconUrl}
+              alt={props.data.description}
+              className="main-icon"
             />
           </div>
-          <div className="col-4">
-            <WeatherDetails
-              description={weatherData.description}
-              humidity={weatherData.humidity}
-              wind={weatherData.wind}
-            />
+        </div>
+        <div className="col-4">
+          <div className="WeatherDetails">
+            <ul>
+              <li className="text-capitalize">{props.data.description}</li>
+              <li>
+                <span>15</span> /<strong> 25</strong>
+              </li>
+              <li>
+                <span>{props.data.humidity}</span>% humidity
+              </li>
+              <li>
+                <span>{props.data.wind}</span>m/s wind
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    );
-  } else {
-    let apiKey = `36dt489d904a0bbfada4633o3f37abdb`;
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-
-    return <p>Loading...</p>;
-  }
+    </div>
+  );
 }

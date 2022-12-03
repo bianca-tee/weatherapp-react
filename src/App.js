@@ -8,7 +8,7 @@ export default function App() {
     <div>
       <div className="container App">
         <Header />
-        <Body />
+        <Body defaultCity="Sydney" />
       </div>
       <footer className="text-center">
         Open-source code by{" "}
