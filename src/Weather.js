@@ -3,6 +3,7 @@ import axios from "axios";
 import Temperature from "./Temperature";
 import TemperatureImage from "./TemperatureImage";
 import WeatherDetails from "./WeatherDetails";
+import FormattedDate from "./FormattedDate";
 import "./City.css";
 
 export default function Weather(props) {
@@ -14,7 +15,7 @@ export default function Weather(props) {
       ready: true,
       city: response.data.city,
       temperature: Math.round(response.data.temperature.current),
-      date: "Thursday, at 10:13",
+      date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
       wind: Math.round(response.data.wind.speed),
@@ -27,7 +28,9 @@ export default function Weather(props) {
       <div>
         <div className="col-12 city-col">
           <h2 className="city">{weatherData.city}</h2>
-          <h5 className="date-time">Last updated on {weatherData.date}</h5>
+          <h5 className="date-time">
+            <FormattedDate date={weatherData.date} />
+          </h5>
         </div>
         <div className="row mx-0">
           <div className="col-6">
