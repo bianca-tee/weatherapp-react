@@ -8,7 +8,6 @@ export default function Body() {
     <div className="row Body">
       <div className="col-12 Search">
         <Search />
-        <City />
         <Weather />
       </div>
     </div>
