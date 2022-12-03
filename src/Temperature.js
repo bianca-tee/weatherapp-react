@@ -12,9 +12,7 @@ export default function Temperature() {
   };
   return (
     <div className="Temperature">
-      <h4 className="current-temp" id="current-temp">
-        {weatherData.temperature}
-      </h4>
+      <h4 className="current-temp">{weatherData.temperature}</h4>
       <span className="current-temp-units">°C</span>
     </div>
   );

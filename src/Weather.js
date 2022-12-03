@@ -6,6 +6,7 @@ import "./City.css";
 
 export default function Weather() {
   let weatherData = {
+    ready: true,
     city: "Sydney",
     temperature: 23,
     date: "Thursday, at 10:13",
@@ -16,12 +17,8 @@ export default function Weather() {
   return (
     <div>
       <div className="col-12 city-col">
-        <h2 className="city" id="current-city">
-          {weatherData.city}
-        </h2>
-        <h5 className="date-time" id="current-date-time">
-          Last updated on {weatherData.date}
-        </h5>
+        <h2 className="city">{weatherData.city}</h2>
+        <h5 className="date-time">Last updated on {weatherData.date}</h5>
       </div>
       <div className="Weather row mx-0">
         <div className="col-6">

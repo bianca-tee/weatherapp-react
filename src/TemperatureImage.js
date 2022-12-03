@@ -5,7 +5,7 @@ import Sun from "./img/Sun.png";
 export default function TemperatureImage() {
   return (
     <div className="TemperatureImage">
-      <img src={Sun} alt="" className="main-icon" id="icon" />
+      <img src={Sun} alt="" className="main-icon" />
     </div>
   );
 }

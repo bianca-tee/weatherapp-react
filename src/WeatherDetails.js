@@ -13,15 +13,15 @@ export default function WeatherDetails() {
   return (
     <div className="WeatherDetails">
       <ul>
-        <li id="weather-overall">{weatherData.description}</li>
+        <li>{weatherData.description}</li>
         <li>
-          <span id="min-temp">15</span> /<strong id="max-temp"> 25</strong>
+          <span>15</span> /<strong> 25</strong>
         </li>
         <li>
-          <span id="humidity">{weatherData.humidity}</span>% humidity
+          <span>{weatherData.humidity}</span>% humidity
         </li>
         <li>
-          <span id="wind">{weatherData.wind}</span>m/s wind
+          <span>{weatherData.wind}</span>m/s wind
         </li>
       </ul>
     </div>
