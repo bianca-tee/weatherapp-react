@@ -35,7 +35,8 @@ export default function Weather(props) {
             <ul>
               <li className="text-capitalize">{props.data.description}</li>
               <li>
-                <span>15</span> /<strong> 25</strong>
+                <span>{props.data.minTemp}</span> /
+                <strong> {props.data.maxTemp}</strong>
               </li>
               <li>
                 <span>{props.data.humidity}</span>% humidity
